@@ -1,2 +1,4 @@
 # fpbase
-FuelPHP Base
+My FuelPHP Base
+
+--Francesco Dattolo
