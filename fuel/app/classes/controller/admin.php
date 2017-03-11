@@ -86,7 +86,7 @@ class Controller_Admin extends Controller_Base
 	public function action_logout()
 	{
 		Auth::logout();
-		Response::redirect('admin');
+		Response::redirect('/');
 	}
 
 	/**

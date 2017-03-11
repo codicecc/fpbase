@@ -38,7 +38,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Welcome!</h1>
-			<p>You have successfully installed the FuelPHP Framework <i><b>with <?php echo Config::get('project_name');?></b></i>: Admin Area Mininal Configuration</p>
+			<p>You have successfully installed the FuelPHP Framework <i><b>with <?php echo Config::get('project_name');?></b></i>: <a href="/admin">Admin Area</a> Mininal Configuration</p>
 			<p><a class="btn btn-primary btn-lg" href="http://docs.fuelphp.com">Read the Docs</a></p>
 		</div>
 		<div class="row">
