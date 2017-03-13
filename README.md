@@ -2,6 +2,9 @@
 ## My FuelPHP Base
 My FuelPHP Base version 1703111411
 
+### FuelPHP Boilerplate with user management
+FuelPHP Boilerplate with user management based on _SimpleAuth_
+
 #FuelPHP
 
 * Version: 1.8
