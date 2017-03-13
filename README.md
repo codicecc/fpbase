@@ -7,7 +7,7 @@ FuelPHP Boilerplate with user management based on _SimpleAuth_
 Every _Role_ belong to own _Group_. For every _Role_ there are some _Permissions_.
 
 The _Group_ Array:
-''groups' => array(
+`'groups' => array(
       -1 => array('name' => 'Banned', 'roles' => array('banned')),
       0 => array('name' => 'Generic', 'roles' => array('generic')),
       2 => array('name' => 'adminAreaAccess', 'roles' => array('adminareaaccess')),	//SUBSCRIBER
@@ -15,7 +15,7 @@ The _Group_ Array:
       20 => array('name' => 'Editor', 'roles' => array('editor','adminareaaccess')),	//EDITOR
       30 => array('name' => 'Manager', 'roles' => array('manager','adminareaaccess')),	//MANAGER
       100  => array('name' => 'Admin', 'roles' => array('editor', 'manager', 'admin')),
-	)'
+	)'`
 
 #FuelPHP
 
