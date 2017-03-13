@@ -7,7 +7,7 @@ FuelPHP Boilerplate with user management based on _SimpleAuth_.
 
 Every _Role_ belong to own _Group_ __with same name__. For every _Role_ there are some _Permissions_.
 
-The _Groups_:
+The _Groups_ are:
 * Banned
 * Generic
 * AdminAreaAccess
