@@ -16,4 +16,4 @@
 	<strong>Last login:</strong>
 	<?php echo date("Y-m-d H:i:s",$user->last_login);  ?></p>
 
-	<?php echo Html::anchor('admin/stores', 'Back'); ?>
+<?php echo render('admin/users/_actionuser'); ?>	

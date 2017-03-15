@@ -1,4 +1,4 @@
-<h2>Listing Users</h2>
+<h2><?php echo(__('admin.ListingUsers'));?></h2>
 <br>
 
 <?php
@@ -14,7 +14,6 @@
 			<th>email</th>
 			<th>last_login</th>
 			<th>created_at</th>
-			<th>updated_at</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -27,10 +26,9 @@
 			<td><?php echo $item->email; ?></td>
 			<td><?php echo date("Y-m-d H:i:s",$item->last_login); ?></td>
 			<td><?php echo date("Y-m-d H:i:s",$item->created_at); ?></td>
-			<td><?php echo date("Y-m-d H:i:s",$item->updated_at); ?></td>
 			<td>
 				<?php //echo Utilities::adminActions($item,Request::active()->route->segments[1],array(array('View','view'),array('Edit','edit'),array('Delete','delete'),));
-					echo Utilities::adminActions($item,Request::active()->route->segments[1],array(array('Change Password','changepassword'),array('View','view'),array('Edit','edit'),array('Delete','delete'),));
+					echo Utilities::adminActions($item,Request::active()->route->segments[1],array(array(__('admin.ChangePassword'),'changepassword'),array(__('admin.View'),'view'),array(__('admin.Edit'),'edit'),array(__('admin.Delete'),'delete'),));
 				?>
 			</td>
 		</tr>
@@ -41,8 +39,8 @@
 <p>No Stores.</p>
 
 <?php endif; ?><p>
-<?php if(Auth::has_access('users.create')):?>
-	<?php echo Html::anchor('admin/users/create', 'Add new User', array('class' => 'btn btn-success')); ?>
+<?php if(Auth::has_access(Request::active()->controller.'.create')):?>
+	<?php echo Html::anchor('admin/users/create', __('admin.AddNewUser'), array('class' => 'btn btn-success')); ?>
 <?php endif;?>
 
 </p>

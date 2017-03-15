@@ -1,7 +1,7 @@
-<h2>New Store</h2>
+<h2>New User</h2>
 <br>
 
-<?php echo render('admin/stores/_form'); ?>
+<?php echo render('admin/users/_form'); ?>
 
 
-<p><?php echo Html::anchor('admin/stores', 'Back'); ?></p>
+<p><?php echo Html::anchor('admin/users', 'Back'); ?></p>

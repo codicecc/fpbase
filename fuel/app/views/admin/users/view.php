@@ -1,4 +1,4 @@
-<h2>Viewing <strong><?php echo $user->username; ?></strong></h2>
+<h2><?php echo(__('admin.Viewing'));?> <strong><?php echo $user->username; ?></strong></h2>
 
 <p>
 	<strong>id:</strong>

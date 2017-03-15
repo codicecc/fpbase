@@ -1,4 +1,4 @@
-<h2>Change Password for user: <?php echo $user->username;?></h2>
+<h2><?php echo __('admin.EditUserProfile');?>: <?php echo $user->username;?></h2>
 <br>
 <?php echo render('admin/users/_changeprofile'); ?>
 <p>

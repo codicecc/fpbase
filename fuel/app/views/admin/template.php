@@ -51,7 +51,7 @@
 				if(Auth::has_access("Controller_Admin_".ucfirst($section_segment).'.index')):
 			?>
 				<li class="<?php echo Uri::segment(2) == $section_segment ? 'active' : '' ?>">
-			<?php echo Html::anchor('admin/'.$section_segment, $section_title) ?>
+			<?php echo Html::anchor('admin/'.$section_segment, __('admin.'.$section_title)) ?>
 				</li>
 			<?php
 				endif;
@@ -63,9 +63,9 @@
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo $current_user->username ?> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<?php if(Auth::has_access("Controller_Admin_Users.viewprofile")):?>						
-							<li><?php echo Html::anchor('admin/users/viewprofile', 'Profilo Utente') ?></li>
+							<li><?php echo Html::anchor('admin/users/viewprofile', __('admin.UserProfile')) ?></li>
 							<?php endif;?>
-							<li><?php echo Html::anchor('admin/logout', 'Logout') ?></li>
+							<li><?php echo Html::anchor('admin/logout', __('admin.Logout')) ?></li>
 						</ul>
 					</li>
 				</ul>
@@ -73,12 +73,10 @@
 		</div>
 	</div>
 	<?php endif; ?>
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<h1><?php echo __('admin.'.$title); ?></h1>		
-				<?php echo __('admin.something');?>
 				<hr>
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success alert-dismissable">
