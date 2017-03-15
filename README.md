@@ -1,8 +1,10 @@
-#FPbase
+# FPbase
+
 ## My FuelPHP Base
+
 My FuelPHP Base version 1703111411
 
-### FuelPHP Boilerplate with user management
+### User management
 FuelPHP _Boilerplate_ with user management based on _SimpleAuth_.
 
 Every _Role_ belong to own _Group_ __with same name__. For every _Role_ there are some _Permissions_.
@@ -15,6 +17,11 @@ The _Groups_ are:
 * Editor
 * Manager
 * Admin
+
+### Multilanguage settings
+
+In before method of admin Controller the italian langanguage is loaded manually.
+Then the language value will loaded from user setting value.
 
 #FuelPHP
 
