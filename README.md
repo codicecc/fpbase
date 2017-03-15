@@ -23,7 +23,7 @@ The _Groups_ are:
 In before method of admin Controller the italian langanguage is loaded manually.
 Then the language value will loaded from user setting value.
 
-#FuelPHP
+# FuelPHP
 
 * Version: 1.8
 * [Website](http://fuelphp.com/)
