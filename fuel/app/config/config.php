@@ -85,6 +85,15 @@ return array(
 	// 'language_fallback'  => 'en', // Fallback language when file isn't available for default language
 	// 'locale'             => 'en_US', // PHP set_locale() setting, null to not set
 
+	// Francesco Dattolo gnucms 1703151118
+	'language' => 'en', // Default language
+	'language_fallback' => 'en', // Fallback language when file isn't available for default language
+	'locale' => 'en_US', // PHP set_locale() setting, null to not set
+	'locales' => array(
+		'en' => 'en_US',
+		'it' => 'it_IT'
+	),
+	
 	/**
 	 * Internal string encoding charset
 	 */

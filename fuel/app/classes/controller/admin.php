@@ -5,6 +5,13 @@ class Controller_Admin extends Controller_Base
 	public $template = 'admin/template';
 
 	public function before(){
+		
+		// gnucms Francesco Dattolo - 1703151147 - Set Language
+		// The language value will loaded from user setting value. Now the italian langanguage is loaded manually
+		// It's important it get loaded before of parent::before(). As It helped here: https://fuelphp.com/forums/discussion/11844/help-change-language-in-before-method
+		Lang::set_lang('it', true);
+		Lang::load('admin-locale','admin');
+		
 		parent::before();
 	
 		if (Request::active()->controller !== 'Controller_Admin' or ! in_array(Request::active()->action, array('login', 'logout')))
@@ -96,7 +103,7 @@ class Controller_Admin extends Controller_Base
 	 * @return  void
 	 */
 	public function action_index(){
-		$this->template->title = 'Dashboard';
+		$this->template->title = 'dashboard';
 		$admin_view='admin/dashboard';
 		$this->template->content = View::forge($admin_view);
 	}
