@@ -10,6 +10,7 @@
 		<tr>
 			<th>id</th>
 			<th>username</th>
+			<th>lang</th>
 			<th>group</th>
 			<th>email</th>
 			<th>last_login</th>
@@ -22,6 +23,7 @@
 
 			<td><?php echo $item->id; ?></td>
 			<td><?php echo $item->username; ?></td>
+			<td><?php echo Arr::get(unserialize(html_entity_decode($item->profile_fields)),"lang"); ?></td>
 			<td><?php echo Auth::group('Simplegroup')->get_name($item->group); ?></td>
 			<td><?php echo $item->email; ?></td>
 			<td><?php echo date("Y-m-d H:i:s",$item->last_login); ?></td>

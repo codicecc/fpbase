@@ -9,7 +9,10 @@ class Controller_Admin extends Controller_Base
 		// gnucms Francesco Dattolo - 1703151147 - Set Language
 		// The language value will loaded from user setting value. Now the italian langanguage is loaded manually
 		// It's important it get loaded before of parent::before(). As It helped here: https://fuelphp.com/forums/discussion/11844/help-change-language-in-before-method
-		Lang::set_lang('it', true);
+		//Debug::dump(Auth::get_profile_fields('lang'));
+		//Debug::dump(Auth::get_profile_fields());
+		/** 1703160857 - gnucms - The language value is got from user "profile_fields", and then loaded**/
+		Lang::set_lang(Auth::get_profile_fields('lang'), true);
 		Lang::load('admin-locale','admin');
 		
 		parent::before();
