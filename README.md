@@ -20,8 +20,7 @@ The _Groups_ are:
 
 ### Multilanguage settings
 
-In before method of admin Controller the italian langanguage is loaded manually.
-Then the language value will loaded from user setting value.
+User language value is stored in key "lang" of _profile_fields_ user field 
 
 # FuelPHP
 
