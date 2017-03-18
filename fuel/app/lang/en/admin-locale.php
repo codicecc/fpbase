@@ -26,7 +26,6 @@ return array(
     'V' => 'Modifica',
     'V' => 'Modifica',
     'V' => 'Modifica',
-    'V' => 'Modifica',
 
     'admin' => array('key1' => 'variable1')
 );

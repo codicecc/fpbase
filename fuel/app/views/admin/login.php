@@ -29,6 +29,10 @@
 				<?php endif; ?>
 			</div>
 
+			<div class="form-group">
+				<label for="lostpassword"><a href="<?php echo Uri::create('admin/lostpassword');?>">Lost Password? Recovery Password.</a></label>
+			</div>
+
 			<div class="actions">
 				<?php echo Form::submit(array('value'=>'Login', 'name'=>'submit', 'class' => 'btn btn-lg btn-primary btn-block')); ?>
 			</div>
