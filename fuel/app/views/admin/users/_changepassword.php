@@ -4,7 +4,7 @@
 		<div class="form-group">
 			<?php echo Form::label('Your password', 'password', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('password', Input::post('password'), array('autocomplete'=>'off','type' => 'password','class' => 'col-md-4 form-control', 'placeholder'=>'Your Password')); ?>
+				<?php echo Form::input('password', Input::post('password'), array('autocomplete'=>'off','type' => 'text','class' => 'col-md-4 form-control', 'placeholder'=>'Your Password')); ?>
 
 		</div>
 		<div class="form-group">

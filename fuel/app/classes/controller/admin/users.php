@@ -88,30 +88,26 @@ class Controller_Admin_Users extends Controller_Admin
 		$this->template->content = View::forge('admin/users/changeemail');
 	}
 
-	public function action_changepassword($id = null)
+	public function action_changepassword()
 	{
-		$user = Model_User::find($id);
-		
+		list(, $userid) = Auth::get_user_id();
+		$user = Model_User::find($userid);
 		//Debug::dump(Input::post('password'));
 		$val = Model_User::validatechangepassword('changepassword');
 
-		if ($val->run())
-		{
+		if ($val->run()){
 			$user->password = Input::post('password');
 			$user->newpassword = Input::post('newpassword');
 			$user->repeatnewpassword = Input::post('repeatnewpassword');
 			
-			if (Auth::change_password($user->password,$user->newpassword,$user->username))
-			{
+			if (Auth::change_password($user->password,$user->newpassword,$user->username)){
 				Session::set_flash('success', e('Changed password for ' . $user->username));
 				Response::redirect('admin/users/viewprofile');
 			}
-			else
-			{
+			else{
 				Session::set_flash('error', e('Could not change password for ' . $user->username));
 			}
 		}
-
 		else
 		{
 			if (Input::method() == 'POST')
@@ -122,6 +118,24 @@ class Controller_Admin_Users extends Controller_Admin
 		$this->template->set_global('user', $user);
 		$this->template->title = "Users";
 		$this->template->content = View::forge('admin/users/changepassword');
+	}
+	public function action_newpassword($id = null){
+	
+		list(, $userid) = Auth::get_user_id();
+		if($id===null){
+			Session::set_flash('error', 'This request is no correct!');
+		}
+		elseif($id==$userid){
+			$user = Model_User::find($id);
+			// reset the password for the current user
+			$new_password = Auth::reset_password($user->username);
+			Session::set_flash('success', e('New Password is: ' . $new_password));
+			$this->template->set_global('user', $user);
+			$this->template->title = "Assigned new Password";
+			$this->template->content = View::forge('admin/users/changepassword');
+			Response::redirect('admin/users/changepassword');			
+		}
+		Response::redirect('admin');
 	}
 
 	public function action_create()

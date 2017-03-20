@@ -48,8 +48,7 @@ class Controller_Admin extends Controller_Base
 			if ($val->run()){
 				if ( ! Auth::check())
 				{
-					if (Auth::login(Input::post('email'), Input::post('password')))
-					{
+					if (Auth::login(Input::post('email'), Input::post('password'))){
 						if(Auth::get('group')=="-1"){
 							Auth::logout();
 							$this->template->set_global('login_error', 'User blocked!');
@@ -112,108 +111,72 @@ class Controller_Admin extends Controller_Base
 	
 	// gnumcs - 1703181018 - https://fuelphp.com/docs/packages/auth/examples/auth.html
 	public function action_lostpassword($hash = null){
-    
-		
 		$val = Validation::forge();
-			    
-    // was the lostpassword form posted?
-    if (\Input::method() == 'POST'){
-    	
-    	$val->add('email', 'Email')
-			    ->add_rule('required');
-			    
+		// was the lostpassword form posted?
+		if (\Input::method() == 'POST'){
+			$val->add('email', 'Email')
+			->add_rule('required');	
 			if ($val->run()){
-			    
-        // do we have a posted email address?
-        if ($email = \Input::post('email')){
-        	
-            // do we know this user?
-            if ($user = \Model\Auth_User::find_by_email($email)){
-            	
-                // generate a recovery hash
-                $hash = \Auth::instance()->hash_password(\Str::random()).$user->id;
-
-                // and store it in the user profile
-                \Auth::update_user(
-                    array(
-                        'lostpassword_hash' => $hash,
-                        'lostpassword_created' => time()
-                    ),
-                    $user->username
-                );
-                $body="Reset Password for user:".$user->username.
-                	"\n".
-                	Uri::create('admin/lostpassword/' . base64_encode($hash) . '/');
-                Email2::send2("Francesco Dattolo TEST","info@francescodattolo.it","Reset Password Test Invio da FPBase Locale",$body);
-              }
-           }
-        }
-
-        // posted form, but email address posted?
-        else
-        {
-            // inform the user and fall through to the form
-        //    \Messages::error(__('login.error-missing-email'));
-            Session::set_flash('error', e('Missing Email'));
-            Response::redirect(Uri::current());
-        }
-
-        // inform the user an email is on the way (or not ;-))
-        //\Messages::info(__('login.recovery-email-send'));
-        Session::set_flash('success', e('login.recovery-email-send'));
-        \Response::redirect_back();
-    }
-
-    // no form posted, do we have a hash passed in the URL?
-    elseif ($hash !== null)
-    {    	
-        // decode the hash
-        $hash = base64_decode($hash);
-    
-        // get the userid from the hash
-        $user = substr($hash, 44);
-        
-        Debug::dump(\Model\Auth_User::find_by_id($user));
-        	
-        die();
-        
-        // and find the user with this id
-        if ($user = \Model\Auth_User::find_by_id($user)){
-            // do we have this hash for this user, and hasn't it expired yet (we allow for 24 hours response)?
-            if (isset($user->lostpassword_hash) and $user->lostpassword_hash == $hash and time() - $user->lostpassword_created < 86400)
-            {
-                // invalidate the hash
-                \Auth::update_user(
-                    array(
-                        'lostpassword_hash' => null,
-                        'lostpassword_created' => null
-                    ),
-                    $user->username
-                );
-
-                // log the user in and go to the profile to change the password
-                if (\Auth::instance()->force_login($user->id))
-                {
-                    \Messages::info(__('login.password-recovery-accepted'));
-                    \Response::redirect('profile');
-                }
-            }
-        }
-
-        // something wrong with the hash
-        \Messages::error(__('login.recovery-hash-invalid'));
-        \Response::redirect_back();
-    }
-
-    // no form posted, and no hash present. no clue what we do here
-    else
-    {
-    		$this->template->title = 'Lost Password';
-    		$this->template->content = View::forge('admin/lostpassword', array('val' => $val), false);
-        //\Response::redirect_back();
-    }
-  }
-
+				// do we have a posted email address?
+				if ($email = \Input::post('email')){
+					// do we know this user?
+					if ($user = \Model\Auth_User::find_by_email($email)){
+						// generate a recovery hash
+						$hash = \Auth::instance()->hash_password(\Str::random()).$user->id;
+						// and store it in the user profile
+						\Auth::update_user(
+							array(
+							'lostpassword_hash' => $hash,
+							'lostpassword_created' => time()
+							),
+							$user->username
+						);
+						$body="Reset Password for user:".$user->username.
+						"\n".
+						Uri::create('admin/lostpassword/' . base64_encode($hash) . '/');
+						Email2::send2("Francesco Dattolo TEST","info@francescodattolo.it","Reset Password Test Invio da FPBase Locale",$body);
+						Session::set_flash('success', e('You have an email!'));
+					}
+				}
+			}
+		}	
+		// no form posted, do we have a hash passed in the URL?
+		elseif ($hash !== null){    	
+			// decode the hash
+			$hash = base64_decode($hash);
+			// get the userid from the hash
+			$user = substr($hash, 44);
+			// and find the user with this id
+			if ($user = \Model\Auth_User::find_by_id($user)){
+				// do we have this hash for this user, and hasn't it expired yet (we allow for 24 hours response)?
+				if (!empty(Arr::get($user->profile_fields,'lostpassword_hash')) and
+							Arr::get($user->profile_fields,'lostpassword_hash') == $hash
+							and time() - Arr::get($user->profile_fields,'lostpassword_created') < 86400){
+					// invalidate the hash
+					\Auth::update_user(
+						array(
+						'lostpassword_hash' => null,
+						'lostpassword_created' => null
+						),
+						$user->username
+					);
+					// log the user in and go to the profile to change the password
+					if (\Auth::instance()->force_login($user->id)){
+						Session::set_flash('success', e('login.password-recovery-accepted'));
+						Session::set_flash('success', e('Welcome, '.$user->username));
+						Response::redirect('admin/users/newpassword/'.$user->id);
+					}
+				}
+			}
+			else{
+				// something wrong with the hash
+				Session::set_flash('error', e('login.recovery-hash-invalid'));
+			}
+		}
+		// no form posted, and no hash present. no clue what we do here
+		$this->template->title = 'Lost Password';
+		$this->template->content = View::forge('admin/lostpassword', array('val' => $val), false);
+	}
 }
 
 /* End of file admin.php */
