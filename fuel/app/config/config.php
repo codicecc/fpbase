@@ -327,7 +327,12 @@ return array(
 		 */
 		// 'language'  => array(),
 	 ),
-	 /** SET HERE PROJECT NAME **/
+	 /** SET HERE PROJECT PARAMETER **/
+	 // Project name
 	 'project_name' => 'Project Name',
+	 // Notification email
+	 'admin_email' => 'info@francescodattolo.it',
+	 // Email from
+	 'application.email-addresses.from.website' => 'francesco@ulisse.codice.cc',
 
 );

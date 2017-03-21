@@ -14,7 +14,7 @@ class email2{
 		// From set application.email-addresses.from.website
 		//$email->from('application.email-addresses.from.website', $fromlabel);
 		// This is my local conf
-		$email->from('francesco@ulisse.codice.cc', $fromlabel);
+		$email->from(Config::get('application.email-addresses.from.website'), $fromlabel);
 		
 		// Set the to address
 		//$email->to('receiver@elsewhere.co.uk', 'Johny Squid');
@@ -24,7 +24,7 @@ class email2{
 		$email->subject($subject);
 		
 		// Set bcc addresses
-		$email->bcc('info@francescodattolo.it', 'Francesco Dattolo');
+		$email->cc(array(Config::get('admin_email')));
 		
 		// And set the body.
 		$email->body($msg);

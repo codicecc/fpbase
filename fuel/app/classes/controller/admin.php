@@ -134,7 +134,8 @@ class Controller_Admin extends Controller_Base
 						$body="Reset Password for user:".$user->username.
 						"\n".
 						Uri::create('admin/lostpassword/' . base64_encode($hash) . '/');
-						Email2::send2("Francesco Dattolo TEST","info@francescodattolo.it","Reset Password Test Invio da FPBase Locale",$body);
+						
+						Email2::send2(Config::get('project_name'),$email,"[".Config::get('project_name')."] - Reset Password",$body);
 						Session::set_flash('success', e('You have an email!'));
 					}
 				}

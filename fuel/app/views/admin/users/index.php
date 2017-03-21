@@ -8,7 +8,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>id</th>
+			<th>id <a href="<?php Uri::current()?>?orderby=id">+</a><a href="<?php Uri::current()?>?orderby=id&order=desc">-</a></th>
 			<th>username</th>
 			<th>lang</th>
 			<th>group</th>

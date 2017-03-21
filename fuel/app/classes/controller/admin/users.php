@@ -1,13 +1,14 @@
 <?php
-class Controller_Admin_Users extends Controller_Admin
-{
+class Controller_Admin_Users extends Controller_Admin{
 
-	public function action_index()
-	{
-		$data['users'] = Model_User::find('all',array('order_by' => array('last_login' => 'desc')));
+	public function action_index(){		
+		
+		is_null(Input::get('orderby'))?$orderby="last_login":$orderby=Input::get('orderby');
+		is_null(Input::get('order'))?$order="asc":$order=Input::get('order');
+		
+		$data['users'] = Model_User::find('all',array('order_by' => array($orderby => $order)));
 		$this->template->title = "Users";
 		$this->template->content = View::forge('admin/users/index', $data);
-
 	}
 	public function action_viewprofile(){
 		$data['user'] = Model_User::find(Auth::get_user_id()[1]);

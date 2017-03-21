@@ -19,6 +19,9 @@
 					<span class="control-label"><?php echo $val->error('email')->get_message('You must provide an email'); ?></span>
 				<?php endif; ?>
 			</div>
+			<div class="form-group">
+				<label for="lostpassword"><a href="<?php echo Uri::create('admin/login');?>">I remember now!</a></label>
+			</div>
 
 			<div class="actions">
 				<?php echo Form::submit(array('value'=>'Recovery Password', 'name'=>'submit', 'class' => 'btn btn-lg btn-primary btn-block')); ?>

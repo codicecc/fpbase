@@ -30,7 +30,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="lostpassword"><a href="<?php echo Uri::create('admin/lostpassword');?>">Lost Password? Recovery Password.</a></label>
+				<label for="lostpassword"><a href="<?php echo Uri::create('admin/lostpassword');?>">Forgot?</a></label>
 			</div>
 
 			<div class="actions">
