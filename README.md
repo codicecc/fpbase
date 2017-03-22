@@ -22,6 +22,12 @@ The _Groups_ are:
 
 User language value is stored in key "lang" of _profile_fields_ user field 
 
+### Send Email
+
+Email2 class, send2 method It is used for Recovery Password 
+
+### Recovery Password 
+
 # FuelPHP
 
 * Version: 1.8
