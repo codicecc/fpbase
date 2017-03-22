@@ -8,13 +8,13 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>id <a href="<?php Uri::current()?>?orderby=id">+</a><a href="<?php Uri::current()?>?orderby=id&order=desc">-</a></th>
-			<th>username</th>
+			<th>id <?php echo utilities::listOrderField('id');?></th>
+			<th>username <?php echo utilities::listOrderField('username');?></th>
 			<th>lang</th>
-			<th>group</th>
-			<th>email</th>
-			<th>last_login</th>
-			<th>created_at</th>
+			<th>group <?php echo utilities::listOrderField('group');?></th>
+			<th>email <?php echo utilities::listOrderField('email');?></th>
+			<th>last_login <?php echo utilities::listOrderField('last_login');?></th>
+			<th>created_at <?php echo utilities::listOrderField('created_at');?></th>
 			<th></th>
 		</tr>
 	</thead>

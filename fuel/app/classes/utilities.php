@@ -9,6 +9,10 @@ class utilities{
   static function standardize2($str) {
 	   return self::trim2(self::uppercase2($str));
   }
+  static function listOrderField($field){
+  	  $s="<a href=\"".Uri::current()."?orderby=".$field."\">+</a><a href=\"".Uri::current()."?orderby=".$field."&order=desc\">-</a>";
+  	  return $s;
+  }
   static function adminActions($item,$controllerName,$aActions){
   	$t="";
 		for($i=0;$i<count($aActions);$i++){
