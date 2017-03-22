@@ -22,7 +22,7 @@ class Controller_Admin extends Controller_Base
 			if (Auth::check()){
 				if(!Auth::has_access(Request::active()->controller.'.'.Request::active()->action)) // correct logical syntax - gnucms - francescodattolo - 1610100838 
 				{
-					Session::set_flash('error', e('You don\'t have access to the admin panel'));
+					Session::set_flash('error', e(__('admin.You-don-t-have-access-to-the-admin-panel')));
 					Response::redirect('/');
 				}
 			}
@@ -131,12 +131,12 @@ class Controller_Admin extends Controller_Base
 							),
 							$user->username
 						);
-						$body="Reset Password for user:".$user->username.
+						$body=_('Reset-Password-for-user').":".$user->username.
 						"\n".
 						Uri::create('admin/lostpassword/' . base64_encode($hash) . '/');
 						
 						Email2::send2(Config::get('project_name'),$email,"[".Config::get('project_name')."] - Reset Password",$body);
-						Session::set_flash('success', e('You have an email!'));
+						Session::set_flash('success', e(__('admin.You-have-an-email').'!'));
 					}
 				}
 			}
@@ -163,15 +163,15 @@ class Controller_Admin extends Controller_Base
 					);
 					// log the user in and go to the profile to change the password
 					if (\Auth::instance()->force_login($user->id)){
-						Session::set_flash('success', e('login.password-recovery-accepted'));
-						Session::set_flash('success', e('Welcome, '.$user->username));
+						Session::set_flash('success', e(__('admin.login.password-recovery-accepted')));
+						Session::set_flash('success', e(__('admin.welcome').', '.$user->username));
 						Response::redirect('admin/users/newpassword/'.$user->id);
 					}
 				}
 			}
 			else{
 				// something wrong with the hash
-				Session::set_flash('error', e('login.recovery-hash-invalid'));
+				Session::set_flash('error', e(__('admin.login.recovery-hash-invalid')));
 			}
 		}
 		// no form posted, and no hash present. no clue what we do here

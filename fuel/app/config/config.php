@@ -333,6 +333,6 @@ return array(
 	 // Notification email
 	 'admin_email' => 'info@francescodattolo.it',
 	 // Email from
-	 'application.email-addresses.from.website' => 'francesco@ulisse.codice.cc',
+	 'application.email-addresses.from.website' => 'francesco@estate.codice.cc',
 
 );

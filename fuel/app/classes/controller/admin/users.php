@@ -124,15 +124,15 @@ class Controller_Admin_Users extends Controller_Admin{
 	
 		list(, $userid) = Auth::get_user_id();
 		if($id===null){
-			Session::set_flash('error', 'This request is no correct!');
+			Session::set_flash('error', __('This-request-is-not-correct').'!');
 		}
 		elseif($id==$userid){
 			$user = Model_User::find($id);
 			// reset the password for the current user
 			$new_password = Auth::reset_password($user->username);
-			Session::set_flash('success', e('New Password is: ' . $new_password));
+			Session::set_flash('success', e(__('admin.New-Password-is').': ' . $new_password));
 			$this->template->set_global('user', $user);
-			$this->template->title = "Assigned new Password";
+			$this->template->title = __("admin.Assigned-new-Password");
 			$this->template->content = View::forge('admin/users/changepassword');
 			Response::redirect('admin/users/changepassword');			
 		}
