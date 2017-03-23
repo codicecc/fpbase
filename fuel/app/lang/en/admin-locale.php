@@ -16,7 +16,7 @@ return array(
     'Back' => 'Back',
     'ViewProfile' => 'View Profile',
     'ChangePassword' => 'Change Password',
-    'EditProfile' => 'Edit Profile',
+    'EditProfile' => 'Edit Your Profile',
     'EditUserProfile' => 'Edit User Profile',
     'EditUserPassword' => 'Edit User Password',
     'Viewing' => 'Viewing',

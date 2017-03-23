@@ -16,7 +16,7 @@ return array(
     'Back' => 'Indietro',
     'ViewProfile' => 'Visualizza Profilo',
     'ChangePassword' => 'Cambia Password',
-    'EditProfile' => 'Modifica Profilo',
+    'EditProfile' => 'Modifica il tuo Profilo',
     'EditUserProfile' => 'Modifica Profilo Utente',
     'EditUserPassword' => 'Modifica Password per l\'Utente',
     'Viewing' => 'Visualizzando',

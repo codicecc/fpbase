@@ -41,7 +41,7 @@ class utilities{
 		$alanguage=array();
 		foreach(Config::get('locales') as $label => $value):
 			//Debug::dump($value);
-			array_push($alanguage,array($value=>$label));
+			array_push($alanguage,array($label=>$value));
 		endforeach;
 		return $alanguage;
 	}
