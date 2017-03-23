@@ -164,8 +164,8 @@ class Controller_Admin_Users extends Controller_Admin{
 					Input::post('group'))
 				)
 				{
+					Auth::update_user(array('lang'=>Input::post('language'),'lang2'=>null), $user->username);
 					Session::set_flash('success', e('Created user #'.$user->username.'.'));
-
 					Response::redirect('admin/users');
 				}
 
@@ -203,10 +203,9 @@ class Controller_Admin_Users extends Controller_Admin{
 			$user->group = Input::post('group');
 			$user->email = Input::post('email');
 
-			if ($user->save())
-			{
+			if ($user->save()){
+				Auth::update_user(array('lang'=>Input::post('language'),'lang2'=>null), $user->username);				
 				Session::set_flash('success', e('Updated User #' . $user->username));
-
 				Response::redirect('admin/users');
 			}
 
