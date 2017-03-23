@@ -17,6 +17,11 @@
 					$grouplabel,
 					array('class' => 'col-md-4 form-control', 'placeholder'=>'Group')); ?></div>
 		<div class="form-group">
+			<?php echo Form::label('Language', 'language', array('class'=>'control-label')); ?>
+				<?php echo Form::select('language', Input::post('language', isset($user) ? Arr::get(unserialize(html_entity_decode($user->profile_fields)),"lang") : ''), 
+					$language,
+					array('class' => 'col-md-4 form-control', 'placeholder'=>'Language')); ?></div>
+		<div class="form-group">
 			<?php echo Form::label('Email', 'email', array('class'=>'control-label')); ?>
 				<?php echo Form::input('email', Input::post('username', isset($user) ? ($user->email) : ''),
 						array('class' => 'col-md-4 form-control', 'placeholder'=>'Email')); ?></div>

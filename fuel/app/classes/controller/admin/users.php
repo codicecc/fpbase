@@ -141,16 +141,11 @@ class Controller_Admin_Users extends Controller_Admin{
 
 	public function action_create()
 	{
-		// generate grouplabel array
-		$grouplabel=array();
-		foreach(Auth::group('Simplegroup')->groups() as $label => $value):
-			//Debug::dump($value);
-			array_push($grouplabel,array($value=>Auth::group('Simplegroup')->get_name($value)));
-		endforeach;
+		// generate grouplabel and language array
+		$grouplabel=utilities::agrouplabel();
+		$language=utilities::alanguage();
 		
-		
-		if (Input::method() == 'POST')
-		{
+		if (Input::method() == 'POST'){
 			$val = Model_User::validate('create');
 
 			if ($val->run())
@@ -188,18 +183,16 @@ class Controller_Admin_Users extends Controller_Admin{
 		//$this->template->grouplabel=$grouplabel;
 		
 		$this->template->set_global('grouplabel', $grouplabel);
+		$this->template->set_global('language', $language);
 		$this->template->title = "Users";
 		$this->template->content = View::forge('admin/users/create');
 
 	}
 	public function action_edit($id = null)
 	{
-		// generate grouplabel array
-		$grouplabel=array();
-		foreach(Auth::group('Simplegroup')->groups() as $label => $value):
-			//Debug::dump($value);
-			array_push($grouplabel,array($value=>Auth::group('Simplegroup')->get_name($value)));
-		endforeach;
+		// generate grouplabel and language array
+		$grouplabel=utilities::agrouplabel();
+		$language=utilities::alanguage();
 		
 		$user = Model_User::find($id);
 		$val = Model_User::validate('edit');
@@ -232,6 +225,7 @@ class Controller_Admin_Users extends Controller_Admin{
 		}	
 
 		$this->template->set_global('grouplabel', $grouplabel);
+		$this->template->set_global('language', $language);
 		$this->template->set_global('user', $user);
 		$this->template->title = "Users";
 		$this->template->content = View::forge('admin/users/edit');

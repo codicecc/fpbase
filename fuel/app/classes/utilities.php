@@ -27,5 +27,23 @@ class utilities{
 		$t=substr($t, 0,-3);
 		return $t;
 	}
+  static function agrouplabel(){		
+		// generate grouplabel array
+		$grouplabel=array();
+		foreach(Auth::group('Simplegroup')->groups() as $label => $value):
+			//Debug::dump($value);
+			array_push($grouplabel,array($value=>Auth::group('Simplegroup')->get_name($value)));
+		endforeach;
+		return $grouplabel;
+	}
+	static function alanguage(){		
+		// generate grouplabel array
+		$alanguage=array();
+		foreach(Config::get('locales') as $label => $value):
+			//Debug::dump($value);
+			array_push($alanguage,array($value=>$label));
+		endforeach;
+		return $alanguage;
+	}
 }
 ?>
