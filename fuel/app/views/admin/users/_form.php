@@ -1,4 +1,4 @@
-<?php echo Form::open(array("class"=>"form-horizontal")); ?>
+<?php echo Form::open(array("class"=>"form-horizontal",'enctype' => 'multipart/form-data')); ?>
 
 	<fieldset>
 		<div class="form-group">
@@ -25,9 +25,11 @@
 			<?php echo Form::label('Email', 'email', array('class'=>'control-label')); ?>
 				<?php echo Form::input('email', Input::post('username', isset($user) ? ($user->email) : ''),
 						array('class' => 'col-md-4 form-control', 'placeholder'=>'Email')); ?></div>
-
+		<div class="form-group">
+			<?php echo Form::label('Fileimage', 'fileimage', array('class'=>'control-label')); ?>
+				<input type="file" name="fileimage"></div>
 		<div class="form-group">
 			<label class='control-label'>&nbsp;</label>
 			<?php echo Form::submit('submit', __('admin.Save'), array('class' => 'btn btn-primary')); ?>		</div>
 	</fieldset>
-<?php echo Form::close(); ?>
+<?php echo Form::close(); ?>	

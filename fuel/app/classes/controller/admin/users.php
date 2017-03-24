@@ -188,8 +188,40 @@ class Controller_Admin_Users extends Controller_Admin{
 		$this->template->content = View::forge('admin/users/create');
 
 	}
-	public function action_edit($id = null)
-	{
+	public function action_edit($id = null){
+		
+//---		
+		// Custom configuration for this upload
+		$config = array(
+				'path' => DOCROOT.'files',
+				'randomize' => true,
+				'ext_whitelist' => array('img', 'jpg', 'jpeg', 'gif', 'png'),
+		);
+		
+		Debug::dump($_FILES);
+
+		// process the uploaded files in $_FILES
+		Upload::process($config);
+		
+		// if there are any valid files
+		if (Upload::is_valid()){
+				// save them according to the config
+				Upload::save();
+		
+				// call a model method to update the database
+				Model_Uploads::add(Upload::get_files());
+		}
+		
+		Debug::dump(Upload::get_errors());
+		// and process any errors
+		foreach (Upload::get_errors() as $file){
+				// $file is an array with all file information,
+				// $file['errors'] contains an array of all error occurred
+				// each array element is an an array containing 'error' and 'message'
+		}
+		die();
+//---
+
 		// generate grouplabel and language array
 		$grouplabel=utilities::agrouplabel();
 		$language=utilities::alanguage();
