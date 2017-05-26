@@ -23,6 +23,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 <body>
+
 	<?php if ($current_user): ?>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -32,11 +33,29 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/admin/"><?php echo Config::get('project_name');?></a>
+				<a class="navbar-brand" href="/"><?php echo Config::get('project_name');?></a>
 			</div>
 			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+
 			<?php
-			echo Helper::build_menu(Config::get('navigation_bar'));
+			
+			//\Cache::delete_all();
+			
+			$files = new GlobIterator(APPPATH.'classes/controller/admin/*.php');
+			foreach($files as $file){
+				$section_segment = $file->getBasename('.php'); 
+				$section_title = Inflector::humanize($section_segment);
+					
+				//Debug::dump("Controller_Admin_".ucfirst($section_segment).'.index');
+				if(Auth::has_access("Controller_Admin_".ucfirst($section_segment).'.index')):
+			?>
+				<li class="<?php echo Uri::segment(2) == $section_segment ? 'active' : '' ?>">
+			<?php echo Html::anchor('admin/'.$section_segment, __('admin.'.$section_title)) ?>
+				</li>
+			<?php
+				endif;
+			}
 			?>
 			</ul>
 				<ul class="nav navbar-nav pull-right">
@@ -57,7 +76,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1><?php echo Config::get('project_name'); ?></h1>		
+				<h1><?php echo __('admin.'.$title); ?></h1>		
 				<hr>
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success alert-dismissable">

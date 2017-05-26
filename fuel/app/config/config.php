@@ -334,5 +334,25 @@ return array(
 	 'admin_email' => 'info@francescodattolo.it',
 	 // Email from
 	 'application.email-addresses.from.website' => 'francesco@estate.codice.cc',
-
+	 	 // Navigation bar
+	'navigation_bar' => array(
+			 '/admin/users' => array(
+					'text'   => 'Users',
+					'rights' => 'users'
+			 ),
+			'help' => array(
+					'text'   => 'Help',
+					'rights' => 'help',
+					'sub' => array(
+						 '/admin/help' => array(
+								'text'   => 'Help',
+								'rights' => 'help'
+						 ),
+						 '/admin/info' => array(
+								'text'   => 'Info',
+								'rights' => 'info'
+						 ),				 
+					)
+			 ),
+		),
 );
