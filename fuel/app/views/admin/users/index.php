@@ -14,7 +14,6 @@
 			<th>group <?php echo utilities::listOrderField('group');?></th>
 			<th>email <?php echo utilities::listOrderField('email');?></th>
 			<th>last_login <?php echo utilities::listOrderField('last_login');?></th>
-			<th>created_at <?php echo utilities::listOrderField('created_at');?></th>
 			<th></th>
 		</tr>
 	</thead>
@@ -27,7 +26,6 @@
 			<td><?php echo Auth::group('Simplegroup')->get_name($item->group); ?></td>
 			<td><?php echo $item->email; ?></td>
 			<td><?php echo date("Y-m-d H:i:s",$item->last_login); ?></td>
-			<td><?php echo date("Y-m-d H:i:s",$item->created_at); ?></td>
 			<td>
 				<?php //echo Utilities::adminActions($item,Request::active()->route->segments[1],array(array('View','view'),array('Edit','edit'),array('Delete','delete'),));
 					echo Utilities::adminActions($item,Request::active()->route->segments[1],array(array(__('admin.ChangePassword'),'changepassword'),array(__('admin.View'),'view'),array(__('admin.Edit'),'edit'),array(__('admin.Delete'),'delete'),));
