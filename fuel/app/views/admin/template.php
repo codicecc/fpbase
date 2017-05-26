@@ -57,7 +57,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1><?php echo Config::get('project_name'); ?></h1>		
+				<h1><?php echo (($current_user)?$title:Config::get('project_name')); ?></h1>		
 				<hr>
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success alert-dismissable">
