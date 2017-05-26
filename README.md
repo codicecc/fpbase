@@ -8,8 +8,8 @@
 * Change Route default admin
 * Add Project name in login page
 * Integrate custom menu:
- * Array in config file
- * Create an Helper to generate HTML Menu
+	* Array in config file
+	* Create an Helper to generate HTML Menu
 * Change links to buttons
 
 ### First Commit My FuelPHP Base version 1703111411
