@@ -2,6 +2,16 @@
 
 ## My FuelPHP Base
 
+### Changelog 1705261137
+
+* Composer Update
+* Change Route default admin
+* Add Project name in login page
+* Integrate custom menu:
+** Array in config file
+** Create an Helper to generate HTML Menu
+* Change links to buttons
+
 My FuelPHP Base version 1703111411
 
 ### User management
