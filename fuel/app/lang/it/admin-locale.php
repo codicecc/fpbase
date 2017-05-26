@@ -1,5 +1,8 @@
 <?php
 return array(
+  	'Help' => 'Aiuto',
+  	'Info' => 'Informazioni',
+  	
     'dashboard' => 'Scrivania',
     'welcome' => 'Benvenuto',
     'UserProfile' => 'Profilo Utente',

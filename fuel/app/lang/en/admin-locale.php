@@ -1,6 +1,9 @@
 <?php
 return array(
-    'dashboard' => 'Dashboard',
+  	'Help' => 'Help',
+  	'Info' => 'Info',  	
+	
+		'dashboard' => 'Dashboard',
     'welcome' => 'Welcome',
     'UserProfile' => 'User Profile',
     'Users' => 'Users',
