@@ -2,10 +2,12 @@
 
 class Controller_Admin extends Controller_Base
 {
+	//public $template = 'admin/sbadmin2-template';
 	public $template = 'admin/template';
+	//public $template = 'admin/template-original';
 
 	public function before(){
-		
+
 		// gnucms Francesco Dattolo - 1703151147 - Set Language
 		// The language value will loaded from user setting value. Now the italian langanguage is loaded manually
 		// It's important it get loaded before of parent::before(). As It helped here: https://fuelphp.com/forums/discussion/11844/help-change-language-in-before-method
@@ -14,13 +16,13 @@ class Controller_Admin extends Controller_Base
 		/** 1703160857 - gnucms - The language value is got from user "profile_fields", and then loaded**/
 		Lang::set_lang(Auth::get_profile_fields('lang'), true);
 		Lang::load('admin-locale','admin');
-		
+
 		parent::before();
-		
+
 		if (Request::active()->controller !== 'Controller_Admin' or ! in_array(Request::active()->action, array('login', 'lostpassword','logout')))
 		{
 			if (Auth::check()){
-				if(!Auth::has_access(Request::active()->controller.'.'.Request::active()->action)) // correct logical syntax - gnucms - francescodattolo - 1610100838 
+				if(!Auth::has_access(Request::active()->controller.'.'.Request::active()->action)) // correct logical syntax - gnucms - francescodattolo - 1610100838
 				{
 					Session::set_flash('error', e(__('admin.You-don-t-have-access-to-the-admin-panel')));
 					Response::redirect('/');
@@ -31,7 +33,7 @@ class Controller_Admin extends Controller_Base
 			}
 		}
 	}
-	
+
 	public function action_login(){
 		// Already logged in
 		Auth::check() and Response::redirect('admin');
@@ -80,7 +82,7 @@ class Controller_Admin extends Controller_Base
 		}
 
 		//Email2::send2("Francesco Dattolo TEST","info@francescodattolo.it","Test Invio da FPBase Locale","It's only a TEST");
-		
+
 		$this->template->title = 'Login';
 		$this->template->content = View::forge('admin/login', array('val' => $val), false);
 	}
@@ -108,14 +110,14 @@ class Controller_Admin extends Controller_Base
 		$admin_view='admin/dashboard';
 		$this->template->content = View::forge($admin_view);
 	}
-	
+
 	// gnumcs - 1703181018 - https://fuelphp.com/docs/packages/auth/examples/auth.html
 	public function action_lostpassword($hash = null){
 		$val = Validation::forge();
 		// was the lostpassword form posted?
 		if (\Input::method() == 'POST'){
 			$val->add('email', 'Email')
-			->add_rule('required');	
+			->add_rule('required');
 			if ($val->run()){
 				// do we have a posted email address?
 				if ($email = \Input::post('email')){
@@ -134,15 +136,15 @@ class Controller_Admin extends Controller_Base
 						$body=_('Reset-Password-for-user').":".$user->username.
 						"\n".
 						Uri::create('admin/lostpassword/' . base64_encode($hash) . '/');
-						
+
 						Email2::send2(Config::get('project_name'),$email,"[".Config::get('project_name')."] - Reset Password",$body);
 						Session::set_flash('success', e(__('admin.You-have-an-email').'!'));
 					}
 				}
 			}
-		}	
+		}
 		// no form posted, do we have a hash passed in the URL?
-		elseif ($hash !== null){    	
+		elseif ($hash !== null){
 			// decode the hash
 			$hash = base64_decode($hash);
 			// get the userid from the hash

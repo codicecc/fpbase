@@ -464,3 +464,19 @@ WARNING - 2017-05-26 11:58:47 --> Fuel\Core\Fuel::init - The configured locale e
 INFO - 2017-05-26 11:58:47 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "admin/login"
 INFO - 2017-05-26 11:58:47 --> Fuel\Core\Request::execute - Called
 INFO - 2017-05-26 11:58:47 --> Fuel\Core\Request::execute - Setting main Request
+WARNING - 2017-05-26 11:59:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+INFO - 2017-05-26 11:59:42 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "admin/login"
+INFO - 2017-05-26 11:59:42 --> Fuel\Core\Request::execute - Called
+INFO - 2017-05-26 11:59:42 --> Fuel\Core\Request::execute - Setting main Request
+WARNING - 2017-05-26 12:19:14 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+INFO - 2017-05-26 12:19:14 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "admin/login"
+INFO - 2017-05-26 12:19:14 --> Fuel\Core\Request::execute - Called
+INFO - 2017-05-26 12:19:14 --> Fuel\Core\Request::execute - Setting main Request
+WARNING - 2017-05-26 12:19:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+INFO - 2017-05-26 12:19:16 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "admin/lostpassword"
+INFO - 2017-05-26 12:19:16 --> Fuel\Core\Request::execute - Called
+INFO - 2017-05-26 12:19:16 --> Fuel\Core\Request::execute - Setting main Request
+WARNING - 2017-05-26 12:19:17 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+INFO - 2017-05-26 12:19:17 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "admin/login"
+INFO - 2017-05-26 12:19:17 --> Fuel\Core\Request::execute - Called
+INFO - 2017-05-26 12:19:17 --> Fuel\Core\Request::execute - Setting main Request
