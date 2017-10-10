@@ -2,8 +2,8 @@
 
 class Controller_Admin extends Controller_Base
 {
-	//public $template = 'admin/sbadmin2-template';
-	public $template = 'admin/template';
+	public $template = 'admin/sbadmin2-template';
+	//public $template = 'admin/template';
 	//public $template = 'admin/template-original';
 
 	public function before(){
