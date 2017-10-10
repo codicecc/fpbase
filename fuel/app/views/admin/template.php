@@ -43,7 +43,7 @@
 					<li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo $current_user->username ?> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<?php if(Auth::has_access("Controller_Admin_Users.viewprofile")):?>						
+							<?php if(Auth::has_access("Controller_Admin_Users.viewprofile")):?>
 							<li><?php echo Html::anchor('admin/users/viewprofile', __('admin.UserProfile')) ?></li>
 							<?php endif;?>
 							<li><?php echo Html::anchor('admin/logout', __('admin.Logout')) ?></li>
@@ -56,8 +56,8 @@
 	<?php endif; ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<h1><?php echo (($current_user)?__('admin.'.$title):Config::get('project_name')); ?></h1>		
+			<div class="col-md-12">1233
+				<h1><?php echo (($current_user)?__('admin.'.$title):Config::get('project_name')); ?></h1>
 				<hr>
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success alert-dismissable">
@@ -89,7 +89,7 @@
 			<a href="http://www.codice.cc/" target="_blank">
 			<?php echo Asset::img('codice_favicon.png', array('id' => 'codicefavicon','title'=>'Web Developer Blog - Codice.Cc'));?></a>
 			<a href="http://gnucms.org/" target="_blank">
-			<?php echo Asset::img('gnucms_favicon.ico', array('id' => 'gnucmsfavicon','title'=>'Etica Hacker - GnuCMS.org'));?></a>			
+			<?php echo Asset::img('gnucms_favicon.ico', array('id' => 'gnucmsfavicon','title'=>'Etica Hacker - GnuCMS.org'));?></a>
 			</p>
 			<p>
 				<a href="http://fuelphp.com">FuelPHP</a> is released under the MIT license.<br>

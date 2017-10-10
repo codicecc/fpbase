@@ -68,8 +68,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+				<?php if ($current_user): ?>
 				<h1><?php echo (($current_user)?__('admin.'.$title):Config::get('project_name')); ?></h1>
 				<hr>
+			<?php endif;?>
 <?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success alert-dismissable">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -91,6 +93,7 @@
 <?php echo $content; ?>
 			</div>
 		</div>
+		<?php if ($current_user): ?>
 		<hr/>
 		<footer class="noprint">
 			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
@@ -107,6 +110,7 @@
 				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
 			</p>
 		</footer>
+	<?php endif;?>
 	</div>
 </body>
 </html>
