@@ -93,7 +93,7 @@ return array(
 		'en' => 'en_US',
 		'it' => 'it_IT'
 	),
-	
+
 	/**
 	 * Internal string encoding charset
 	 */
@@ -330,28 +330,30 @@ return array(
 	 /** SET HERE PROJECT PARAMETER **/
 	 // Project name
 	 'project_name' => 'Project Name',
+	 // Project logo
+	 'project_logo' => 'logo.png',
 	 // Notification email
 	 'admin_email' => 'info@francescodattolo.it',
 	 // Email from
 	 'application.email-addresses.from.website' => 'francesco@estate.codice.cc',
 	 	 // Navigation bar
 	'navigation_bar' => array(
-			 '/admin/users' => array(
-					'text'   => 'Users',
-					'rights' => 'users'
-			 ),
+			'/admin/users' => array(
+				 'text'   => 'Users',
+				 'rights' => 'Controller_Admin_Users.index'
+			),
 			'help' => array(
 					'text'   => 'Help',
-					'rights' => 'help',
+					'rights' => 'Controller_Admin_Help.index',
 					'sub' => array(
 						 '/admin/help' => array(
 								'text'   => 'Help',
-								'rights' => 'help'
+								'rights' => 'Controller_Admin_Help.index'
 						 ),
 						 '/admin/info' => array(
 								'text'   => 'Info',
-								'rights' => 'info'
-						 ),				 
+								'rights' => 'Controller_Admin_Info.index'
+						 ),
 					)
 			 ),
 		),

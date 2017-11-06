@@ -81,7 +81,7 @@ return array(
 	 * Groups as id => array(name => <string>, roles => <array>)
 	 */
 
-	 
+
 	'groups' => array(
       -1 => array('name' => 'Banned', 'roles' => array('banned')),
       0 => array('name' => 'Generic', 'roles' => array('generic')),
@@ -99,6 +99,19 @@ return array(
 			'Controller_Admin' => array('index','dashboard'),
 			'Controller_Admin_Users' => array(
 				'viewprofile',
+			),
+		),
+		'editor' => array(
+			'Controller_Admin' => array('index'),
+			'Controller_Admin_Users' => array(
+				'viewprofile',
+				'changeprofile',
+			),
+			'Controller_Admin_Help' => array(
+				'index',
+			),
+			'Controller_Admin_Info' => array(
+				'index',
 			),
 		)
 		/*
@@ -128,7 +141,7 @@ return array(
 				'Controller_Admin_Users' => array(
 					'viewprofile',
 					'index',
-				), 	 
+				),
 		 	 'Controller_Admin_Codes' => array(
 		 	 	 'index',
 		 	 	 'view',
@@ -168,18 +181,18 @@ return array(
 				'create',
 				'view',
 				'delete',
-				'edit'				
+				'edit'
 			),
 			'Controller_Admin_Codecompetitor' => array(
 				'index',
 				'create',
 				'view',
 				'delete',
-				'edit'				
+				'edit'
 			),
 		),*/
 	),
-	
+
 	/**
 	 * Salt for the login hash
 	 */

@@ -1,13 +1,13 @@
 <?php
 return array(
   	'Help' => 'Help',
-  	'Info' => 'Info',  	
-	
+  	'Info' => 'Info',
+
 		'dashboard' => 'Dashboard',
     'welcome' => 'Welcome',
     'UserProfile' => 'User Profile',
     'Users' => 'Users',
-    'Logout' => 'Logout',    
+    'Logout' => 'Logout',
     'UserList' => 'User List',
     'UserEdit' => 'User Edit',
     'AddNewUser' => 'Add New User',
@@ -32,8 +32,20 @@ return array(
     'New-Password-is' => 'The new password is',
     'Assigned-new-Password' => 'Nuova Password assegnata',
     'This-request-is-not-correct' => 'This request is not correct',
-    'V' => 'Modifica',
-    'V' => 'Modifica',
+    'Yuppylab' => 'YuppyLab',
+    'Fans' => 'Fans',
+    'PageReach' => 'Page Reach',
+    'PageEngagement' => 'Page Engagement',
+    'PostNumber' => 'Post Number',
+    'PageEngagementRate' => 'Page Engagement Rate',
+    'Vote' => 'Vote',
+    'PageEngagementRateDesc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. ',
+    'VoteDesc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. ',
+    'Details' => 'Details',
+    'link' => 'Link',
+    'Period' => 'Period',
+    'post' => 'Post',
+    'Postlist' => 'Post list',
 
     'admin' => array('key1' => 'variable1')
 );

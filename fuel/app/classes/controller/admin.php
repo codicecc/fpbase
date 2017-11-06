@@ -16,6 +16,7 @@ class Controller_Admin extends Controller_Base
 		/** 1703160857 - gnucms - The language value is got from user "profile_fields", and then loaded**/
 		Lang::set_lang(Auth::get_profile_fields('lang'), true);
 		Lang::load('admin-locale','admin');
+		Lang::load('help-locale','help');
 
 		parent::before();
 
@@ -108,6 +109,11 @@ class Controller_Admin extends Controller_Base
 	public function action_index(){
 		$this->template->title = 'dashboard';
 		$admin_view='admin/dashboard';
+		if(Auth::get_groups()[0][1]==20){
+				$this->template->title = 'FPBase';
+				$admin_view='admin/';
+				Response::redirect('/admin');
+		}
 		$this->template->content = View::forge($admin_view);
 	}
 

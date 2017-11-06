@@ -16,6 +16,8 @@
 	<?php echo Asset::js(array(
 		'http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js',
 		'bootstrap.js',
+		'backToTop.js',
+		'anchor-highlight.js',
 		//'custom.js',
 		//'codesource-ajax.js'
 	)); ?>
@@ -35,7 +37,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/admin/"><i class="fa fa-dashboard fa-fw"></i> <?php echo Config::get('project_name');?></a>
+				<a class="navbar-brand" href="/admin/"><?php echo Asset::img(Config::get('project_logo'), array('id' => 'logo','title'=>Config::get('project_name')));?></a>
 			</div>
 			<div class="navbar-collapse collapse">
 			<?php
@@ -112,5 +114,7 @@
 		</footer>
 	<?php endif;?>
 	</div>
+	<div class="modal"><!-- LOADING MODAL --></div>
+	<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </body>
 </html>

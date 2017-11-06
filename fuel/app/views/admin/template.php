@@ -14,6 +14,7 @@
 	<?php echo Asset::js(array(
 		'http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js',
 		'bootstrap.js',
+		'tooltip.js',
 		//'custom.js',
 		//'codesource-ajax.js'
 	)); ?>
@@ -56,7 +57,7 @@
 	<?php endif; ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">1233
+			<div class="col-md-12">
 				<h1><?php echo (($current_user)?__('admin.'.$title):Config::get('project_name')); ?></h1>
 				<hr>
 <?php if (Session::get_flash('success')): ?>

@@ -24,7 +24,7 @@
 							<?php endif; ?>
 						</div>
 						<div class="form-group">
-							<label for="lostpassword"><a href="<?php echo Uri::create('admin/login');?>">I remember now!</a></label>
+							<label for="lostpassword" class="text-primary"><a href="<?php echo Uri::create('admin/login');?>">I remember now!</a></label>
 						</div>
 
 						<div class="actions">

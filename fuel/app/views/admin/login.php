@@ -1,6 +1,11 @@
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		<div class="login-panel panel panel-default">
+		<!--<div class="login-panel panel panel-default">-->
+
+		<div class="login-panel" style="margin-bottom:1rem;">
+			<?php echo Asset::img(Config::get('project_logo'), array('id' => 'login-logo','title'=>Config::get('project_name')));?>
+		</div>
+		<div class=" panel panel-default">
 				<div class="panel-heading">
 						<h3 class="panel-title">Please Sign In</h3>
 				</div>
