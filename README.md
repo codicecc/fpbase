@@ -6,7 +6,9 @@
 
 * Download the zip file
 * Uncompress file
-* From console, run `oil refine migrate::current`
+* From console, run: `oil refine migrate::current`
+* From console, creating admin user, run: `oil console`
+* `Auth::create_user('admin', 'password', 'phil@example.com', 100);`
 
 ### Changelog 1705261137
 
