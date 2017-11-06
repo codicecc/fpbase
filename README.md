@@ -2,6 +2,12 @@
 
 ## My FuelPHP Base
 
+### Quick Start
+
+* Download the zip file
+* Uncompress file
+* From console, run `oil refine migrate::current`
+
 ### Changelog 1705261137
 
 * Composer Update
