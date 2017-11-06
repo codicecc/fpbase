@@ -9,6 +9,7 @@
 * From console, run: `oil refine migrate::current`
 * From console, creating admin user, run: `oil console`
 * `Auth::create_user('admin', 'password', 'phil@example.com', 100);`
+* Access in admin area
 
 ### Changelog 1705261137
 
